@@ -72,6 +72,8 @@ export const styles = css`
     img{
         flex:45px;
         width: 100%;
+        max-height: 90%;
+        max-width: 5em;
     }
     .btns{
         padding:20px;
