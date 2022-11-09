@@ -1,3 +1,4 @@
+// comenzar una nueva batalla
 export const startNewBattles = () => {
   let wns = document
     .querySelector("poke-batallas")
@@ -11,6 +12,7 @@ export const startNewBattles = () => {
   );
 };
 
+// activar el boton de batalla
 export function activarBtnBatalla(wons) {
   //console.log("why??? ",this.battle);
   let wns = document
@@ -25,12 +27,14 @@ export function activarBtnBatalla(wons) {
   }
 }
 
+// guardar informacion de pokemones ganadores al local storage
 export function saveToLCS(data) {
   let key = "wons";
   let nombre = data.nombre;
   this.verGetLocalData(key, nombre);
 }
 
+// Obtener los datos almacenados en el local storage
 export function verGetLocalData(key, name) {
   let localSave = [];
   const item = localStorage.getItem(key);
@@ -42,6 +46,7 @@ export function verGetLocalData(key, name) {
   }
 }
 
+// buscar un pokemon en los datos del local storage
 export function findPokeData(nombre, data) {
   let bool = false;
   data.forEach(element => {

@@ -1,3 +1,4 @@
+// 
 export const btns = da => {
   document
     .querySelector("poke-batallas")
@@ -5,6 +6,7 @@ export const btns = da => {
     .setAttribute("battle", da);
 };
 
+// resetear los campos en pantalla a valores inicales
 export const resetView = () => {
   let bttpoke = document
     .querySelector("poke-batallas")
@@ -24,16 +26,21 @@ export const resetView = () => {
   cntpoke.removeAttribute("next");
 
   actualizarContPoke();
-  eliminarLCSChecked();
+  /*eliminarLCSChecked();*/
 };
 
+/*
 export const eliminarLCSChecked = () => {
   let item = localStorage.getItem("checked");
   if (item !== null) {
     localStorage.removeItem("checked");
   }
 };
+*/
 
+/**  emular una actulaización del contenedor de pokemones para que 
+ verifique y defina la cantidad de batallas ganadas 
+ */
 export const actualizarContPoke = () => {
   let cpok = document
     .querySelector("poke-batallas")
