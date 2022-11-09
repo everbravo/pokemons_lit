@@ -9,6 +9,8 @@ export function obtainPokes(arrpokes) {
   return arrpok;
 }
 
+// aleatoriedad para la batalla 
+// -- NOTA: con el fin de evitar el sesgo del math ramdom hacia el cero formula otra solucion--
 export function battleRamdom() {
   //let aleat = Math.floor(Math.random() * this.arrpok.length);
   let aleat = Math.floor(Math.random() * 10 % 2);
@@ -27,6 +29,7 @@ export function battleRamdom() {
   senDataWon(f);
 }
 
+// enviar informacion del ganador
 export function senDataWon(data) {
   let btt = document
     .querySelector("poke-batallas")
@@ -40,6 +43,7 @@ export function senDataWon(data) {
   );
 }
 
+// ejecutar batalla
 export function startBattle(first, second) {
   // TODO: this
   let hp1 = parseInt(first["hp"]);
@@ -59,6 +63,7 @@ export function startBattle(first, second) {
   return second;
 }
 
+// activar boton de batalla
 export function activarBtnBatalla(battle) {
   //console.log("why??? ",this.battle);
   let btt = document

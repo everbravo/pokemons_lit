@@ -25,6 +25,7 @@ export class GetData extends LitElement {
     this.GetDataHead(this.meth, this.offset);
   }
 
+  // función que envia los datos hacia el contenedor de pokemones mediante un evento
   _sendData(data) {
     this.dispatchEvent(
       new CustomEvent("api-data", {
@@ -35,6 +36,7 @@ export class GetData extends LitElement {
     );
   }
 
+  // función que permite obtener la data referente a los pokemones
   async GetDataHead(met, ogg) {
     let url = `https://pokeapi.co/api/v2/pokemon/?offset=${ogg}&limit=6`;
     // console.log(url);
@@ -70,6 +72,7 @@ export class GetData extends LitElement {
     //this._sendData(foo);
   }
 
+  // agregar los datos extraidos a un arreglo global
   addData(data) {
     let nombre = data.name;
     let img = data.sprites.front_default;
