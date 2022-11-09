@@ -58,7 +58,6 @@ export const styles = css`
     }
     .cont-datos{
         margin:5px;
-    /*border: 0.5px solid gray;*/
     display: flex;
     flex:40%;
     padding: 0px 10px 0px 10px;
