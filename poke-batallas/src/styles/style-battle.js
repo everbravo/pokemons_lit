@@ -12,15 +12,17 @@ export const stylebatt = css`
                 padding: 2em;
             }
             img{
-            width: 100%;
+            width: auto;
+            max-width: 90%;
             }
             .cont-poke{
             display: flex;
             flex-direction: row;
-            /*border: 1px solid;*/
-            margin: 10px;
-            width: 100%;
-            justify-content: center;
+            /*border: 1px solid;
+            margin: 10px;*/
+            justify-content: inherit;
+            /*width: 100%;
+            justify-content: center;*/
             }
             .btn-battle{
             margin: 10px;

@@ -32,7 +32,8 @@ export const stylestemplate = css`
         justify-content:center;
     }
     h1{
-      font-size:3em;
+      font-size:2em;
+      margin:0;
     }
     .container1{
         width:40%;

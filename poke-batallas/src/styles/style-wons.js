@@ -16,7 +16,8 @@ export const styleswon = css`
                 width:100%;
             }
             img{
-                width:33%;
+                width:auto;
+                max-width: 40%;
             }
             button{
             width: 100%;

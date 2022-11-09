@@ -1,5 +1,6 @@
 import { LitElement, html, css } from 'lit';
 import { stylebatt } from '../styles/style-battle';
+import * as btt from '../application/batlle';
 
 export class BattlePoke extends LitElement {
     static styles = [stylebatt];
@@ -17,26 +18,17 @@ export class BattlePoke extends LitElement {
         this.pokes = [];
         this.arrpokes = [];
         this.battle = 0;
-        let arrpok = [];
     }
 
     firstUpdated(){
-        this.activarBtnBatalla();
+        btt.activarBtnBatalla();
     }
 
-    get obtainPokes(){
-        let arrayPokemons = [];
-        if (this.arrpokes.da !== undefined){
-            this.arrpokes.da.forEach(s => arrayPokemons.push(JSON.parse(s)));
-        }
-        this.arrpok = arrayPokemons;
-        return this.dataTemplate();
-    }
-
-    dataTemplate() {
-        if (this.arrpok.length > 0){
+    get dataTemplate() {
+        let arrpok = btt.obtainPokes(this.arrpokes);
+        if (arrpok.length > 0){
             return html`
-            ${this.arrpok.map(  (character) => html`
+            ${arrpok.map((character) => html`
                 <div class="poke">
                     <img src="${character['image']}" alt="poke beautiful">
                     <p>${character['nombre']}</p>
@@ -55,74 +47,23 @@ export class BattlePoke extends LitElement {
             </div>`
         }
         
-      }
-
-    battleRamdom(){
-        let aleat = Math.floor(Math.random() * this.arrpok.length);
-        let copiaArray = this.arrpok;
-        
-        let oneAttack = copiaArray[aleat];
-        copiaArray = copiaArray.filter(nombre => nombre['nombre'] !== oneAttack['nombre']);
-        let twoAttack = copiaArray[0];
-
-        //console.log("one -> ", oneAttack);
-        //console.log("two -> ", twoAttack);
-
-        const f = this.startBattle(oneAttack, twoAttack);
-        this.senDataWon(f);
-      }
-
-    senDataWon(data){
-        this.dispatchEvent(new CustomEvent('poke-won', {
-            detail:{data},
-            bubbles:true,
-            composed: true
-        }));
     }
-
-    startBattle(first, second){
-        let hp1 = parseInt(first['hp']);
-        let hp2 = parseInt(second['hp']);
-
-        let pw1 = parseInt(first['attack']);
-        let pw2 = parseInt(second['attack']);
-
-        while ((hp1 > 0)) {
-            hp2 -= pw1;
-            if(hp2 > 0){
-                hp1 -= pw2;
-            }else{
-                return first;
-            }
-        }
-        return second;
-      }
     
-    activarBtnBatalla(){
-        //console.log("why??? ",this.battle);
-        let  cons = this.shadowRoot.querySelector("button");
-        if(this.battle === 1){
-            cons.removeAttribute('disabled');
-        }else{
-            cons.setAttribute('disabled', '');
-        }
-    }
-
     render() {
         return html`
             <div class="main-container">
                 <div class="cont-poke">
-                   ${this.obtainPokes} 
+                   ${this.dataTemplate} 
                 </div>
                 <div class="btn-battle">
-                    <button class="fight" @click="${this.battleRamdom}" disabled>Batalla</button>
+                    <button class="fight" @click="${btt.battleRamdom}" disabled>Batalla</button>
                 </div>
             </div>
         `;
     }
 
     updated() {
-        this.activarBtnBatalla();
+        btt.activarBtnBatalla(this.battle);
     }
 
     

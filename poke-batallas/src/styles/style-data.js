@@ -25,22 +25,23 @@ export const styles = css`
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 5px;
     flex-wrap:wrap;
-    /*border:0.2px solid gray;
-    width: -webkit-fill-available;*/
-    width: 80%;
+    /*margin: 5px;
+    border:0.2px solid gray;
+    width: -webkit-fill-available;
+    width: 80%;*/
+    height:5.5em;
     }
     .mega-cont{
         background-color: rgb(232 231 233);
-        display: flex;
+        /*display: flex;*/
     flex-direction: column;
     align-items: center;
-    padding-top:10px;
+   /* padding-top:10px;*/
     }
     p{
         margin: 0;
-        font-size:14px;
+        font-size:12px;
         font-family: "Comic Sans MS", "Comic Sans", cursive;
     }
     .cont-radio{
@@ -62,7 +63,7 @@ export const styles = css`
     flex:40%;
     padding: 0px 10px 0px 10px;
     width: -webkit-fill-available;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     }
     .cont-datos div{
