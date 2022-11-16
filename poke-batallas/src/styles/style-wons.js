@@ -32,4 +32,13 @@ export const styleswon = css`
         align-self: center;
         width: 100%;
     }
+    @media (min-width: 901px) {
+        .cont-poke{
+        width:100%;
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    }
     `;
+    
